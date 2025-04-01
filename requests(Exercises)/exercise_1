@@ -1,0 +1,15 @@
+import requests
+
+url = 'https://142.250.74.196'
+
+try:
+    response = requests.get(url, timeout=10)
+except requests.ConnectionError as e:
+    print(e)
+
+except requests.exceptions.RequestException as e:
+    print(e)
+else:
+    print(response.status_code)
+finally:
+    print('Execution finished!!!')
