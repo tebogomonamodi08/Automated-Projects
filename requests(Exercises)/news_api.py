@@ -1,4 +1,5 @@
 import requests
+import json
 
 url = 'https://newsapi.org/v2/top-headlines'
 params = {
@@ -19,4 +20,6 @@ except requests.Timeout as e:
     print(e)
 except requests.JSONDecodeError as e:
     print(e)
-print(response.text)
+
+data = response.json()
+print(json.dumps(data, indent = 4))
